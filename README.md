@@ -47,15 +47,15 @@ KLSR wraps around these methods and occasionally proposes **reflected candidates
      - Normal: \(n = \nabla \hat f(g) / \|\nabla \hat f(g)\|\)
 
 3. **Specular reflection moves**  
-   For a stalled individual \(x\), reflection across the learned mirror:
-   
+   For a stalled individual $x$, reflection across the learned mirror:
+
    $$
    y(\alpha) = x - 2\alpha\, \langle x - c, n \rangle\, n,\quad \alpha \in \{1, 0.5, 0.25\}
    $$
-   
-   - Apply **bound handling** (`clip` or `mirror`) to keep \(y\) in \([\ell, u]\).
-   - If the surrogate is unreliable (low \(R^2\) or tiny gradient), fall back to simple symmetry reflections around \(p\) and \(g\):
-     
+
+   - Apply **bound handling** (`clip` or `mirror`) to keep $y$ in $[\ell, u]$.
+   - If the surrogate is unreliable (low $R^2$ or tiny gradient), fall back to simple symmetry reflections around $p$ and $g$:
+
      $$
      y_p = 2p - x,\quad y_g = 2g - x,\quad y_{pg} = 2g - (2p - x)
      $$
