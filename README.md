@@ -17,9 +17,9 @@ The goal: **better solutions and faster progress** with only a **small increase*
 ### Problem Setting
 
 We consider bound-constrained black-box minimization:
-\[
+$$
 \min_{x \in \mathbb{R}^d} f(x) \quad \text{s.t.} \quad \ell \le x \le u
-\]
+$$
 with expensive evaluations and no exact gradients.
 
 Population-based metaheuristics (PSO, DE, etc.) maintain:
