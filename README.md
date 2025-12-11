@@ -69,7 +69,7 @@ $$
    - Track **stall length** for each individual and for the global best.
    - Periodically refit the mirror when the global best has stalled for enough iterations.
    - Apply KLSR only to a small subset of the **most stagnated** individuals.
-   - Use a **decaying trigger probability** \(p_{\text{trig}}(t)\) and a user-defined quota to control total extra evaluations.
+   - Use a **decaying trigger probability** $p_{\text{trig}}(t)$ and a user-defined quota to control total extra evaluations.
 
 ---
 
