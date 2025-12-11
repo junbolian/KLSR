@@ -36,28 +36,28 @@ KLSR wraps around these methods and occasionally proposes **reflected candidates
 ### Core Idea: Kernel Level–Set Reflection
 
 1. **Local surrogate around the global best**  
-   - Maintain an archive of evaluated points \((X_i, F_i)\).
-   - Rescale to \([0,1]^d\) and select \(k\) nearest neighbors around the current global best \(g\).
+   - Maintain an archive of evaluated points $(X_i, F_i)$.
+   - Rescale to $[0,1]^d$ and select $k$ nearest neighbors around the current global best $g$.
    - Fit a **kernel ridge regressor** using **random Fourier features (RFF)** to approximate a Gaussian kernel smoother.
 
 2. **Learned mirror and gradient**  
-   - The surrogate yields an approximate gradient \(\nabla \hat f(g)\).
+   - The surrogate yields an approximate gradient $\nabla \hat f(g)$.
    - This defines a hyperplane that locally approximates a **level set**:
-     - Center: \(c = g\)
-     - Normal: \(n = \nabla \hat f(g) / \|\nabla \hat f(g)\|\)
+     - Center: $c = g$
+     - Normal: $n = \nabla \hat f(g) / \|\nabla \hat f(g)\|$
 
 3. **Specular reflection moves**  
    For a stalled individual $x$, reflection across the learned mirror:
 
    $$
-   y(\alpha) = x - 2\alpha\, \langle x - c, n \rangle\, n,\quad \alpha \in \{1, 0.5, 0.25\}
+   y(\alpha) = x - 2\alpha\, \langle x - c, n \rangle\, n,\quad \alpha \in \{1, 0.5, 0.25\}.
    $$
 
    - Apply **bound handling** (`clip` or `mirror`) to keep $y$ in $[\ell, u]$.
    - If the surrogate is unreliable (low $R^2$ or tiny gradient), fall back to simple symmetry reflections around $p$ and $g$:
 
      $$
-     y_p = 2p - x,\quad y_g = 2g - x,\quad y_{pg} = 2g - (2p - x)
+     y_p = 2p - x,\quad y_g = 2g - x,\quad y_{pg} = 2g - (2p - x).
      $$
 
 5. **Monotone, budget-aware adoption**
