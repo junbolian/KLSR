@@ -48,21 +48,23 @@ KLSR wraps around these methods and occasionally proposes **reflected candidates
 
 3. **Specular reflection moves**  
    For a stalled individual \(x\), reflection across the learned mirror:
+   
    \[
    y(\alpha) = x - 2\alpha\, \langle x - c, n \rangle\, n,\quad \alpha \in \{1, 0.5, 0.25\}
    \]
+   
    - Apply **bound handling** (`clip` or `mirror`) to keep \(y\) in \([\ell, u]\).
    - If the surrogate is unreliable (low \(R^2\) or tiny gradient), fall back to simple symmetry reflections around \(p\) and \(g\):
      \[
      y_p = 2p - x,\quad y_g = 2g - x,\quad y_{pg} = 2g - (2p - x)
      \]
 
-4. **Monotone, budget-aware adoption**
+5. **Monotone, budget-aware adoption**
    - For each KLSR call, evaluate at most a **small number** of candidates (typically one).
    - Only accept a candidate if it **strictly improves** the objective.
    - This makes each KLSR invocation **non-degrading** and evaluation overhead **negligible** (a few percent of baseline).
 
-5. **Stall-aware triggering mechanism**
+6. **Stall-aware triggering mechanism**
    - Track **stall length** for each individual and for the global best.
    - Periodically refit the mirror when the global best has stalled for enough iterations.
    - Apply KLSR only to a small subset of the **most stagnated** individuals.
