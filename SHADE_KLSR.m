@@ -78,7 +78,8 @@ function [bestScore, bestX, curve] = SHADE_KLSR( ...
             if klsr_state.t > H, klsr_state.t = 1; end
         end
 
-        %%� KLSR 插件
+        %% KLSR 插件
+        kopt.fx = f;
         [X, klsr_state, ~] = KLSR(X, f, lb, ub, klsr_state, kopt);
 
         %%更新 best & curve
@@ -90,3 +91,4 @@ function [bestScore, bestX, curve] = SHADE_KLSR( ...
         curve(G) = bestScore;
     end
 end
+
