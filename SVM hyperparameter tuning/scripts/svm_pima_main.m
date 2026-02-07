@@ -26,7 +26,7 @@ test_ratio   = 0.50;
 val_in_train = 0.25;
 seed0        = 42;
 
-ROOT    = '/Users/zhengzikun/Desktop/SVM';
+ROOT    = '/Users/zhengzikun/Desktop/SVM'; //change to yours
 ALG_DIR = fullfile(ROOT, 'klsr');
 fpath   = fullfile(ROOT, 'data', 'pima-indians-diabetes.csv');
 
@@ -320,3 +320,4 @@ for i = 1:numel(zero_missing)
 end
 
 end
+
