@@ -1,5 +1,4 @@
 function run_sonar(CFG)
-% Run SONAR dataset (one-file version):
 % 1) Clean raw CSV -> run/results/sonar/clean.csv
 % 2) Call shared experiment driver: fs_feature_exp(clean.csv, 'sonar', CFG)
 %
@@ -8,9 +7,9 @@ function run_sonar(CFG)
 % - Label is the last column
 
     % -------------------- locate paths --------------------
-    RUN_DIR  = fileparts(mfilename('fullpath')); % .../run/datasets
-    RUN_DIR  = fileparts(RUN_DIR);               % .../run
-    ROOT_DIR = fileparts(RUN_DIR);               % .../FeatureSelectionKLSR
+    RUN_DIR  = fileparts(mfilename('fullpath'));
+    RUN_DIR  = fileparts(RUN_DIR);
+    ROOT_DIR = fileparts(RUN_DIR);
 
     % >>> IMPORTANT: set the raw filename here to match your fs/data <<<
     RAW = fullfile(ROOT_DIR, 'fs', 'data', 'Copy of sonar data.csv');
