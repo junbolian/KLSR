@@ -1,5 +1,4 @@
 function run_m_of_n(CFG)
-% Run M-of-n dataset (one-file version):
 % 1) Clean raw CSV -> run/results/m_of_n/clean.csv
 % 2) Call shared experiment driver: fs_feature_exp(clean.csv, 'm_of_n', CFG)
 %
@@ -8,9 +7,9 @@ function run_m_of_n(CFG)
 % - label already is 1/2 (1..K), usually last column
 
     % -------------------- locate paths --------------------
-    RUN_DIR  = fileparts(mfilename('fullpath')); % .../run/datasets
-    RUN_DIR  = fileparts(RUN_DIR);               % .../run
-    ROOT_DIR = fileparts(RUN_DIR);               % .../FeatureSelectionKLSR
+    RUN_DIR  = fileparts(mfilename('fullpath'));
+    RUN_DIR  = fileparts(RUN_DIR);               
+    ROOT_DIR = fileparts(RUN_DIR);               
 
     RAW = fullfile(ROOT_DIR, 'fs', 'data', 'M-of-n.csv');
 
