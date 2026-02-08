@@ -1,5 +1,4 @@
 function run_indian_liver(CFG)
-% Run indian_liver_patient dataset (one-file version):
 % Raw file: fs/data/indian_liver_patient.csv
 % - Label: Dataset (1/2) keep as 1/2
 % - Features: all remaining columns, encode Gender
