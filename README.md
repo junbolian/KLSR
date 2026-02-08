@@ -2,6 +2,10 @@
 
 This repository provides the reference implementation of **Kernel Level–Set Reflection (KLSR)**, a lightweight operator for evolutionary and swarm-based black-box optimization under fixed evaluation budgets. KLSR augments a host optimizer by learning a local “mirror” map from previously evaluated samples via random-feature ridge regression and then proposing conservative reflection steps subject to a monotone acceptance safeguard. The operator is activated through a stall-aware gate and is implemented without altering the host algorithm’s native update rules.
 
+<p align="center">
+  <img src="klsr_workflow.png" alt="KLSR workflow" width="700">
+</p>
+
 **Key contributions**:
 
 - A geometry-aware reflection operator is proposed for evolutionary algorithms.  
