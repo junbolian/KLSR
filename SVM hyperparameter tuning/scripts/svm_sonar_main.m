@@ -23,11 +23,11 @@ test_ratio   = 0.50;
 val_in_train = 0.25;
 seed0        = 42;
 
-DATA_FILE = "/Users/zhengzikun/Desktop/SVM/data/Copy of sonar data.csv"; //change to yours
+DATA_FILE = "/Users/zhengzikun/Desktop/SVM/data/Copy of sonar data.csv"; % change to yours
 
-ALG_DIR = "/Users/zhengzikun/Desktop/SVM/klsr"; //change to yours
+ALG_DIR = "/Users/zhengzikun/Desktop/SVM/klsr"; % change to yours
 
-OUT_DIR = "/Users/zhengzikun/Desktop/SVM/results"; //change to yours
+OUT_DIR = "/Users/zhengzikun/Desktop/SVM/results"; % change to yours
 if ~exist(OUT_DIR, "dir"), mkdir(OUT_DIR); end
 
 % add algorithms
@@ -279,4 +279,5 @@ y = double(grp2idx(categorical(y_str)));
 y = y(:);
 
 end
+
 

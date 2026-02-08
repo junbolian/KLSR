@@ -22,7 +22,7 @@ test_ratio   = 0.50;
 val_in_train = 0.25;
 seed0        = 42;
 
-ROOT    = '/Users/zhengzikun/Desktop/SVM'; //change to yours
+ROOT    = '/Users/zhengzikun/Desktop/SVM'; % change to yours
 ALG_DIR = fullfile(ROOT, 'klsr');
 fpath   = fullfile(ROOT, 'data', 'indian_liver_patient.csv');
 
@@ -343,4 +343,5 @@ y(y_raw == 1) = 0;
 y = double(y(:));
 
 end
+
 
