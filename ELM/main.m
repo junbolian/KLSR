@@ -1,13 +1,9 @@
-% FeatureSelectionKLSR/run/main.m
-% Run ONE dataset at a time.
-% You will set DATASET, then this script calls: run_<DATASET>.m
-
 clear; clc;
 
 % -------------------- CHOOSE DATASET (one at a time) --------------------
 % Example:
 %   DATASET = 'pass_fail';
-% Then you need a file: FeatureSelectionKLSR/run/datasets/run_pass_fail.m
+% Then you need a file: /datasets/run_pass_fail.m
 DATASET = 'sonar'; % <-- you will change this each time
 
 % -------------------- GLOBAL CONFIG --------------------
