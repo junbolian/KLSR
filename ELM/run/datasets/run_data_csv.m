@@ -1,5 +1,4 @@
 function run_data_csv(CFG)
-% Run data.csv (one-file version):
 % Raw file: fs/data/data.csv
 % - Drop: ID
 % - Label: class (P/H) -> 1/2
