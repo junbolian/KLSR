@@ -80,27 +80,13 @@ Example:
 results_KLSR_PSO_CEC2017_D30_sig.mat
 ```
 
-### 4. (Optional) Run the legacy comparison script
-
-If you want to reproduce the original comparison pipeline, you can still run:
-
-```matlab
-main_KLSR_compare
-```
-
-Output file:
-
-```
-results_KLSR_<ALGO>_CEC2017_D<dim>_compare.mat
-```
-
-### 5. Notes
+### 4. Notes
 
 - Results are saved in the repo root unless you change the save path in the scripts.
 - `main_KLSR_master.m` supports: single-algo or all-algo runs, plot on/off, and different modes.
 - Random seeds are fixed in `main_KLSR_master.m` (`master_seed`), so results are reproducible.
 
-### 6. Running S1–S10 (Sensitivity + Comparison Pipeline)
+### 5. Running S1–S10 (Sensitivity + Comparison Pipeline)
 
 Typical order to run (adjust if you only need part of the pipeline):
 
