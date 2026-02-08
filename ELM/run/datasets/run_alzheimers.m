@@ -4,9 +4,9 @@ function run_alzheimers(CFG)
 % 2) Call shared experiment driver: fs_feature_exp(clean.csv, 'alzheimers', CFG)
 
     % -------------------- locate paths --------------------
-    RUN_DIR  = fileparts(mfilename('fullpath')); % .../run/datasets
-    RUN_DIR  = fileparts(RUN_DIR);               % .../run
-    ROOT_DIR = fileparts(RUN_DIR);               % .../FeatureSelectionKLSR
+    RUN_DIR  = fileparts(mfilename('fullpath')); 
+    RUN_DIR  = fileparts(RUN_DIR);               
+    ROOT_DIR = fileparts(RUN_DIR);               
 
     RAW = fullfile(ROOT_DIR, 'fs', 'data', 'alzheimers_disease_data.csv');
 
@@ -35,7 +35,6 @@ function run_alzheimers(CFG)
     % Numeric feature matrix
     X = double(table2array(T));
 
-    % Map 0/1 -> 1/2 (required by FS code style: res(:,end)==i with i=1..K)
     if all(ismember(unique(y), [0 1]))
         y = y + 1;
     else
