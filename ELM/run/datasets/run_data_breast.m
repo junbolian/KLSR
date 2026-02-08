@@ -1,5 +1,4 @@
 function run_data_breast(CFG)
-% Run data_breast dataset (one-file version, GUARANTEED header handling)
 % Raw file: fs/data/data_breast.csv
 % - Drop: id, Unnamed: 32 (all NaN)
 % - Label: diagnosis (M/B) -> 1/2
