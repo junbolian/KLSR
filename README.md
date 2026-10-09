@@ -8,11 +8,15 @@ This repository provides the reference implementation of **Kernel Level–Set Re
 
 **Key contributions**:
 
-- A geometry-aware reflection operator is proposed for evolutionary algorithms.  
-- Local surrogate gradients define adaptive reflection hyperplanes.  
-- Monotone acceptance and stall-aware triggering ensure safe integration.  
-- Four metaheuristics are consistently improved on CEC2017 benchmarks.  
-- Validated on UAV planning, SVM tuning, and feature selection tasks.
+- A stall-triggered reflection operator that plugs into a host optimizer without changing its native update rules.
+- Proposals combine opposition (anchor) reflection about the personal and global bests with an optional surrogate “mirror” reflection from a local random-feature ridge fit.
+- A monotone, non-worsening acceptance safeguard (descent-safety) and a stall-aware trigger keep integration safe under a shared evaluation budget.
+- Applicable to both continuous and binary decision-variable encodings.
+- Integrated with four metaheuristics (CSO, GA, JADE, PSO) and evaluated on CEC2017 as well as UAV path planning, SVM tuning, and feature selection.
+
+**What the controlled study finds**:
+
+Under a fixed evaluation budget and a same-budget ablation, the learned surrogate geometry does **not** beat simple opposition reflection on CEC2017: the surrogate gradient is near-random there (though accurate on smooth analytic functions), and the measured benefit traces to the stall-triggered **opposition** component rather than the geometry. Opposition reflection also outranks population restart and a diversity-preserving move under a matched budget. KLSR therefore doubles as a reusable diagnostic for testing when a local surrogate can guide escape from stagnation.
 
 ---
 
@@ -20,7 +24,7 @@ This repository provides the reference implementation of **Kernel Level–Set Re
 
 KLSR is designed as a plug-in mechanism that preserves standard fixed-budget comparison protocols:
 
-- **Budget discipline**: the total number of objective evaluations is unchanged.  
+- **Budget discipline**: the total number of objective evaluations is unchanged; any extra evaluations spent by KLSR are charged to the shared budget, so an augmented run may finish fewer native iterations.
 - **Stagnation-aware invocation**: reflections are proposed only when global progress plateaus.  
 - **Host-agnostic integration**: KLSR operates as an add-on module rather than a redesign of baseline dynamics.  
 - **Applicability across encodings**: both continuous and binary decision-variable settings are included.  
@@ -91,7 +95,7 @@ results_KLSR_PSO_CEC2017_D30_sig.mat
 Typical order to run (adjust if you only need part of the pipeline):
 
 - S1-S5: Sensitivity Analysis.
-- S6-S8: Compariosn.
+- S6-S8: Comparison.
 - S9-S10: Statistics
 
 ---
