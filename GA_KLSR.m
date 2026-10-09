@@ -23,7 +23,7 @@ function [gBestScore, gBest, cg_curve] = GA_KLSR(N, Max_iteration, lb, ub, dim, 
     if ~isfield(kopt,'quota'),          kopt.quota = 0.10; end
     if ~isfield(kopt,'bound_mode'),     kopt.bound_mode = 'clip'; end
     if ~isfield(kopt,'alpha'),          kopt.alpha = [1 0.5 0.25]; end
-    if ~isfield(kopt,'max_evals'),      kopt.max_evals = 1; end
+    if ~isfield(kopt,'max_evals'),      kopt.max_evals = 2; end  % faithful: the wiped-opts bug forced KLSR's own default of 2
     if ~isfield(kopt,'fit'),            kopt.fit = struct('D',128,'sigma',1.0,'lambda',1e-3, ...
                                            'k',min(3*dim,200),'df',inf,'quality_min',0.6); end
     if ~isfield(kopt,'arch_max'),       kopt.arch_max = 500; end

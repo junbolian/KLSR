@@ -30,9 +30,9 @@ function S6_run_compare_collect_raw()
     MaxFEs = 10000 * dim;
     MaxIt  = floor(MaxFEs / N);
 
-    % ---- KLSR fixed params (from your sensitivity) ----
+    % ---- KLSR fixed params (from the sensitivity grid: tau=50 at p0=0.30 ranks best-tied, 4.83) ----
     kopt = struct();
-    kopt.tau = 25;
+    kopt.tau = 50;
     kopt.p0  = 0.30;
     kopt.p1  = 0.10;
 
